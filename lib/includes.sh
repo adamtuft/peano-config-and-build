@@ -53,7 +53,7 @@ __peano_print_known_configs() {
 }
 
 __peano_parse_args() {
-    action="${1:-help}"; shift;
+    action="${1:-help}"; shift || return 0;
     if [[ "$action" == clone ]]; then
         while [[ $1 == -*  ]]; do
             case $1 in
