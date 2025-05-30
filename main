@@ -1,0 +1,22 @@
+#!/usr/bin/env -S bash
+
+set -e
+
+__peano_root="${PEANO_ROOT:-$HOME/git/peano-config-and-build}"
+
+case "$1" in
+    init)
+        echo "__peano_root=${__peano_root}"
+        for file in ${__peano_root}/lib/*.sh; do
+            cat "$file"
+        done
+        ;;
+    completions)
+        echo "__peano_root=${__peano_root}"
+        cat "${__peano_root}/completions.sh"
+        ;;
+    *)
+        eval "$($0 init)"
+        peano_main "$@"
+        ;;
+esac
