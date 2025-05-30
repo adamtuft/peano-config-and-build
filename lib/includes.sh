@@ -171,18 +171,16 @@ __peano_format_config_file() {
 # build dir: $4
 # branch:    $5 ($6)
 
-set -e
-
 action="\$1"
 
 [[ -z "\$action" ]] && echo -e "usage:\n  source \$0 load\n  source \$0 configure" >&2 && return 1
 
-if [[ "\$action" == "load"]]; then
+if [[ "\$action" == "load" ]]; then
 $1
 $2
 fi
 
-if [[ "\$action" == "configure"]]; then
+if [[ "\$action" == "configure" ]]; then
 __last_dir="\$(pwd)"
 cd "$4"
 $3
